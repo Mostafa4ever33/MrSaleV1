@@ -32,7 +32,7 @@
             this.txtUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.txtPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.loginButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.usertile = new MetroFramework.Controls.MetroTile();
             this.loading = new System.Windows.Forms.Label();
@@ -107,18 +107,18 @@
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = false;
             // 
-            // materialRaisedButton1
+            // loginButton
             // 
-            this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(345, 346);
-            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton1.Name = "materialRaisedButton1";
-            this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(114, 27);
-            this.materialRaisedButton1.TabIndex = 4;
-            this.materialRaisedButton1.Text = "Next";
-            this.materialRaisedButton1.UseVisualStyleBackColor = true;
-            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            this.loginButton.Depth = 0;
+            this.loginButton.Location = new System.Drawing.Point(345, 346);
+            this.loginButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Primary = true;
+            this.loginButton.Size = new System.Drawing.Size(114, 27);
+            this.loginButton.TabIndex = 4;
+            this.loginButton.Text = "Next";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
             // pictureBox1
             // 
@@ -126,7 +126,7 @@
             this.pictureBox1.BackgroundImage = global::MrSales_Manager.Properties.Resources.spin;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = global::MrSales_Manager.Properties.Resources.spin;
-            this.pictureBox1.Location = new System.Drawing.Point(263, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(267, 76);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(279, 322);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -169,7 +169,7 @@
             this.ClientSize = new System.Drawing.Size(819, 454);
             this.Controls.Add(this.loading);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.materialRaisedButton1);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.txtUsername);
@@ -195,7 +195,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtUsername;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtPassword;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton loginButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label loading;
     }

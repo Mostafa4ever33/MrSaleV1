@@ -59,7 +59,7 @@ namespace MrSales_Manager
             loading.ForeColor = Color.Teal;
             pictureBox1.Visible = true;
            
-            materialRaisedButton1.Text = "Cancel";
+            loginButton.Text = "Cancel";
             return Task.Delay(1000);
             
 
@@ -90,10 +90,10 @@ namespace MrSales_Manager
             
 
             txtUsername.Enabled = false;
-            materialRaisedButton1.Location = new Point(350, 405);
+            loginButton.Location = new Point(350, 405);
             materialLabel2.Visible = true;
             txtPassword.Visible = true;
-            materialRaisedButton1.Text = "Login";
+            loginButton.Text = "Login";
             return Task.Delay(1000);
 
         }
@@ -124,6 +124,7 @@ namespace MrSales_Manager
             // check if database returned any value for username
             if (login()!="")
             {
+                #region Start IfStatement
                 if (txtUsername.Text == "")
                 {
                     MetroMessageBox.Show(this, "UserName Can not be empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -133,34 +134,44 @@ namespace MrSales_Manager
                     await ShowUserPic();
 
                     var query = from staff in db.users
-                                where staff.password == txtPassword.Text
+                                where staff.password == txtPassword.Text && staff.username==txtUsername.Text
                                 select staff;
 
-
-
+                    #region Start Foreach to check password
                     foreach (var item in query)
                     {
-                        usertile.Visible = false;
-                        txtUsername.Visible = false;
-                        txtPassword.Visible = false;
-                        materialRaisedButton1.Visible = false;
+                        if (item.password!="")
+                        {
+                            usertile.Visible = false;
+                            txtUsername.Visible = false;
+                            txtPassword.Visible = false;
+                            loginButton.Visible = false;
 
-                        await ShowPicAnimationAsync();
+                            await ShowPicAnimationAsync();
 
-                        //MetroMessageBox.Show(this,"He guy, you logged in! " + item.username);
 
-                        MainForm home = new MainForm();
+                            MainForm home = new MainForm();
 
-                        this.Hide();
-                        home.ShowDialog();
-                        this.Dispose();
+                            this.Hide();
+                            home.ShowDialog();
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            MetroMessageBox.Show(this, "invalid Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
                     }
+                    #endregion foreach ends here
 
+                    // the lines bellow executes if the password is not found in the database
 
-
+                    MetroMessageBox.Show(this, "invalid Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
                 }
+                #endregion endif
+
 
 
             }
