@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="mrsalesdbv1" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\mrsalesdbv1.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="MrSales_Manager.Properties.Settings" SettingsPropertyName="mrsalesdbv1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.users" Member="users">
+    <Type Name="user">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="profile_pic" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.items" Member="items">
+    <Type Name="item">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitPrice" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customers" Member="customers">
+    <Type Name="customer">
+      <Column Name="customerId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="customerName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="customerPhone" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="customersDebt" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="customersChange" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dailySales" Member="dailySales">
+    <Type Name="dailySale">
+      <Column Name="dailySaleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="totalSaleToday" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="date" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.persale" Member="persales">
+    <Type Name="persale">
+      <Column Name="saleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="itemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="customerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paidAmount" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="totalAmount" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

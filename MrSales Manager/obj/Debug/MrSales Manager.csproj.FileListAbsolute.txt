@@ -1,0 +1,26 @@
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\mrsalesdbv1.mdf
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\mrsalesdbv1_log.ldf
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\MrSales Manager.exe.config
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\MrSales Manager.exe
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\MrSales Manager.pdb
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\MaterialSkin.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\MetroFramework.Design.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\MetroFramework.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales_Manager.Form1.resources
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales_Manager.Home.resources
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales_Manager.Properties.Resources.resources
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales Manager.csproj.GenerateResource.Cache
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales Manager.exe
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales Manager.pdb
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales_Manager.MainForm.resources
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales Manager.csprojResolveAssemblyReference.cache
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Resources\products1.png
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Resources\Cash In Hand-48.png
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Resources\naira11.png
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Resources\Add Shopping Cart-48.png
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Resources\About-48.png
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Resources\save.png
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales_Manager.PayDialog.resources
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Printing.dll
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Printing.pdb
