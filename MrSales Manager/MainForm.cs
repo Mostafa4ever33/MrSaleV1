@@ -212,7 +212,42 @@ namespace MrSales_Manager
         private void btnPrint_Click(object sender, EventArgs e)
         {
             // using the printing library
-            Printing p = new Printing();
+            List<string> phone = new List<string>();
+            phone.Add("08166307166");
+            phone.Add("07035274153");
+
+            List<string> itemss = new List<string>();
+            //itemss.Add();
+           foreach (var item in phone)
+	        {
+		        itemss.Add(item);
+	        }
+
+            ///
+           foreach (DataGridViewRow item in datagridforItems.Rows)
+           {
+               if (!string.IsNullOrEmpty(item.Cells[3].ToString()))
+               {
+                   var totalSum = (from DataGridViewRow row in datagridforItems.Rows
+                                   where row.Cells[3].Value != null
+                                   select Convert.ToDecimal(row.Cells[3].FormattedValue)).Sum().ToString();
+                   txtgross.Text = totalSum;
+               }
+
+
+
+           }
+           int numberOfItemss = 0;
+           if (datagridforItems.Rows[0].Cells[0].Value!=null)
+           {
+               for (int i = 0; i < datagridforItems.Rows.Count - 1; i++)
+               {
+                   numberOfItemss = i;
+               }
+           }
+           
+
+            Printing p = new Printing("logo","Decent Digital Tech",phone,"50",Convert.ToDecimal(txtunitprice.Text),Convert.ToInt32(txtgross.Text),numberOfItemss,itemss);
             p.print();
             
         }
@@ -293,6 +328,12 @@ namespace MrSales_Manager
                 txtcustomerphonenumber.Text = item.customerPhone;
                 txtdebt.Text = item.customersDebt;
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
         }
 
         
