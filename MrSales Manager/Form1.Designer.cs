@@ -33,7 +33,10 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.txtPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.usertile = new MetroFramework.Controls.MetroTile();
+            this.loading = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -43,12 +46,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(345, 257);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(119, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(119, 18);
             this.materialLabel1.TabIndex = 2;
             this.materialLabel1.Text = "Enter UserName";
             // 
@@ -77,12 +80,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(345, 324);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(114, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(114, 18);
             this.materialLabel2.TabIndex = 2;
             this.materialLabel2.Text = "Enter Password";
             // 
@@ -117,6 +120,20 @@
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::MrSales_Manager.Properties.Resources.spin;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Image = global::MrSales_Manager.Properties.Resources.spin;
+            this.pictureBox1.Location = new System.Drawing.Point(263, 76);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(279, 322);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
             // usertile
             // 
             this.usertile.ActiveControl = null;
@@ -133,21 +150,39 @@
             this.usertile.UseSelectable = true;
             this.usertile.UseTileImage = true;
             // 
+            // loading
+            // 
+            this.loading.AutoSize = true;
+            this.loading.BackColor = System.Drawing.Color.Transparent;
+            this.loading.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loading.Location = new System.Drawing.Point(371, 332);
+            this.loading.Name = "loading";
+            this.loading.Size = new System.Drawing.Size(74, 21);
+            this.loading.TabIndex = 6;
+            this.loading.Text = "Loading";
+            this.loading.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 454);
+            this.Controls.Add(this.loading);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.usertile);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(819, 454);
+            this.MinimumSize = new System.Drawing.Size(819, 454);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MrSales";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,6 +196,8 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtPassword;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label loading;
     }
 }
 

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mrsalesdbv1ModelStoreContainer" CdmEntityContainer="mrsalesdbv1Entities">
+    <EntitySetMapping Name="dailySales">
+      <EntityTypeMapping TypeName="mrsalesdbv1Model.dailySale">
+        <MappingFragment StoreEntitySet="dailySales">
+          <ScalarProperty Name="dailySaleId" ColumnName="dailySaleId" />
+          <ScalarProperty Name="totalSaleToday" ColumnName="totalSaleToday" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

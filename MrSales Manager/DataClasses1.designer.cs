@@ -598,7 +598,7 @@ namespace MrSales_Manager
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dailySaleId", DbType="Int NOT NULL", IsPrimaryKey=true, UpdateCheck=UpdateCheck.Never)]
-		public int dailySaleId
+		public int dailySaleId2
 		{
 			get
 			{
@@ -618,7 +618,7 @@ namespace MrSales_Manager
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalSaleToday", DbType="VarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string totalSaleToday
+		public string totalSaleToday1
 		{
 			get
 			{
@@ -638,7 +638,7 @@ namespace MrSales_Manager
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", AutoSync=AutoSync.Always, DbType="rowversion", IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary date
+		public System.Data.Linq.Binary date1
 		{
 			get
 			{

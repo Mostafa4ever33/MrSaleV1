@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mrsalesdbv1Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="mrsalesdbv1Entities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="dailySales" EntityType="mrsalesdbv1Model.dailySale" />
+  </EntityContainer>
+  <EntityType Name="dailySale">
+    <Key>
+      <PropertyRef Name="dailySaleId" />
+    </Key>
+    <Property Name="dailySaleId" Type="Int32" Nullable="false" />
+    <Property Name="totalSaleToday" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="date" Type="Binary" MaxLength="8" FixedLength="true" p1:StoreGeneratedPattern="Computed" />
+  </EntityType>
+</Schema>

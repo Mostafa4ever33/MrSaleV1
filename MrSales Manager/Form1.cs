@@ -23,6 +23,7 @@ namespace MrSales_Manager
         public Form1()
         {
             InitializeComponent();
+            
 
             //
             var materialSkinManager = MaterialSkinManager.Instance;
@@ -46,59 +47,128 @@ namespace MrSales_Manager
             txtPassword.Visible = false;
         }
 
-        public string login()
-        {
-            var query = from staff in db.users
-                        where staff.username == txtUsername.Text
-                        select staff.profile_pic;
-            foreach (var item in query)
-            {
-                _fileName = item;
-            }
-            return _fileName;
-        }
+       
+        /// <summary>
+        /// shows loading animation
+        /// </summary>
+        /// <returns></returns>
+        public Task ShowPicAnimationAsync()
+        { 
+            
+            loading.Visible = true;
+            loading.ForeColor = Color.Teal;
+            pictureBox1.Visible = true;
+           
+            materialRaisedButton1.Text = "Cancel";
+            return Task.Delay(1000);
+            
 
-        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        }
+        /// <summary>
+        /// shows user profile picture asynchronously
+        /// </summary>
+        /// <returns></returns>
+        public Task ShowUserPic()
         {
+            
             Bitmap bm;
-            string image=null;
-            if (txtUsername.Text=="")
-            {
-                MetroMessageBox.Show(this,"UserName Can not be empty","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
-            else
+            string image = null;
+            try
             {
                 _folderpath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
                 _fileName = System.IO.Path.Combine(_folderpath, "img");
                 image = System.IO.Path.Combine(_fileName, login());
                 bm = new Bitmap(image);
-                usertile.TileImage = bm;
-
-                txtUsername.Enabled = false;
-                materialRaisedButton1.Location = new Point(350, 405);
-                materialLabel2.Visible = true;
-                txtPassword.Visible = true;
-                materialRaisedButton1.Text = "Login";
-
-                var query = from staff in db.users
-                            where staff.password == txtPassword.Text
-                            select staff;
-                
-                foreach (var item in query)
-                {
-                   
-                    MetroMessageBox.Show(this,"He guy, you logged in! " + item.username);
-                }
-
-                Home home = new Home();
-
+               usertile.TileImage =bm;
                
-               this.Hide();
-                home.ShowDialog();
-               this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MetroMessageBox.Show(this,"Invalid User Name","Error",MessageBoxButtons.OK,MessageBoxIcon.Error,300);  
                 
             }
             
+
+            txtUsername.Enabled = false;
+            materialRaisedButton1.Location = new Point(350, 405);
+            materialLabel2.Visible = true;
+            txtPassword.Visible = true;
+            materialRaisedButton1.Text = "Login";
+            return Task.Delay(1000);
+
+        }
+
+        public string login()
+        {
+            var query = from staff in db.users
+                        where staff.username == txtUsername.Text
+                        select staff.profile_pic;
+            foreach (var staffid in query)
+            {
+                _fileName = staffid;
+            }
+            if (_fileName != null)
+            {
+                return _fileName;
+            }
+            else
+            {
+                return "";
+            }
+
+
+
+        }
+        private async void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            // check if database returned any value for username
+            if (login()!="")
+            {
+                if (txtUsername.Text == "")
+                {
+                    MetroMessageBox.Show(this, "UserName Can not be empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    await ShowUserPic();
+
+                    var query = from staff in db.users
+                                where staff.password == txtPassword.Text
+                                select staff;
+
+
+
+                    foreach (var item in query)
+                    {
+                        usertile.Visible = false;
+                        txtUsername.Visible = false;
+                        txtPassword.Visible = false;
+                        materialRaisedButton1.Visible = false;
+
+                        await ShowPicAnimationAsync();
+
+                        //MetroMessageBox.Show(this,"He guy, you logged in! " + item.username);
+
+                        MainForm home = new MainForm();
+
+                        this.Hide();
+                        home.ShowDialog();
+                        this.Dispose();
+                    }
+
+
+
+
+
+                }
+
+
+            }
+            else
+            {
+                MetroMessageBox.Show(this, "invalid User Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
 
            
         }

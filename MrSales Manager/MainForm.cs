@@ -25,8 +25,10 @@ namespace MrSales_Manager
 
         public MainForm()
         {
+
             InitializeComponent();
             //
+            metroTabControl1.SelectedTab = tabhome;
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
@@ -48,7 +50,8 @@ namespace MrSales_Manager
             txtItemId.Enabled = false;
             // disabling  the quantity textbox
             txtitemquantity.Enabled = false;
-            
+
+       
             
            
             
@@ -333,7 +336,7 @@ namespace MrSales_Manager
         private void MainForm_Load(object sender, EventArgs e)
         {
 
-            this.reportViewer1.RefreshReport();
+           
         }
 
         
