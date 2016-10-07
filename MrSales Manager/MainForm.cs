@@ -211,6 +211,7 @@ namespace MrSales_Manager
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            public List<string> totalitems
             // using the printing library
             Printing p = new Printing();
             p.print();
