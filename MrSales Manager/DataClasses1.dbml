@@ -26,13 +26,6 @@
       <Column Name="customersChange" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.dailySales" Member="dailySales">
-    <Type Name="dailySale">
-      <Column Name="dailySaleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="totalSaleToday" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="date" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.persale" Member="persales">
     <Type Name="persale">
       <Column Name="saleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -40,6 +33,13 @@
       <Column Name="customerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="paidAmount" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="totalAmount" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dailySales" Member="dailySales">
+    <Type Name="dailySale">
+      <Column Name="dailySaleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="totalSaleToday" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

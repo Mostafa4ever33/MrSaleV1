@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 // other libraries
 using MaterialSkin.Controls;
 using MaterialSkin;
 using MetroFramework;
-using Eze.Printing;
+
+using salesprint;
+using System.Text;
 
 namespace MrSales_Manager
 {
@@ -50,6 +53,9 @@ namespace MrSales_Manager
             txtItemId.Enabled = false;
             // disabling  the quantity textbox
             txtitemquantity.Enabled = false;
+
+            //disabling itemname
+            txtitemname.Enabled = false;
 
        
             
@@ -189,44 +195,58 @@ namespace MrSales_Manager
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            if (txtitemname.Text!="0" || txtitemname.Text!="")
+            if (!string.IsNullOrEmpty(txtitemname.Text))
             {
-                datagridforItems.Rows.Add(txtitemname.Text,txtitemquantity.Value,txtunitprice.Text,txtsubtotal.Text);
-
-               
-            }
-
-            // display and add total items bought amount
-            foreach (DataGridViewRow item in datagridforItems.Rows)
-            {
-                if (!string.IsNullOrEmpty(item.Cells[3].ToString()))
+                if (txtitemname.Text != "Item Name")
                 {
-                    var totalSum = (from DataGridViewRow row in datagridforItems.Rows
-                                    where row.Cells[3].Value != null
-                                    select Convert.ToDecimal(row.Cells[3].FormattedValue)).Sum().ToString();
-                    txtgross.Text=totalSum;
+                    datagridforItems.Rows.Add(txtitemname.Text, txtitemquantity.Value, txtunitprice.Text, txtsubtotal.Text);
+
+
+
+
+                    // display and add total items bought amount
+                    foreach (DataGridViewRow item in datagridforItems.Rows)
+                    {
+                        if (!string.IsNullOrEmpty(item.Cells[3].ToString()))
+                        {
+                            var totalSum = (from DataGridViewRow row in datagridforItems.Rows
+                                            where row.Cells[3].Value != null
+                                            select Convert.ToDecimal(row.Cells[3].FormattedValue)).Sum().ToString();
+                            txtgross.Text = totalSum;
+                        }
+
+
+
+                    }
+
                 }
                
-
-                
             }
+            else
+            {
+                MetroMessageBox.Show(this, "Select an item from the item pane");
+            }
+           
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            // using the printing library
+            #region phonenumbers
+            // add a list of phone numbers from the company
             List<string> phone = new List<string>();
             phone.Add("08166307166");
             phone.Add("07035274153");
 
-            List<string> itemss = new List<string>();
-            //itemss.Add();
+            List<string> comphone = new List<string>();
+             
+            
            foreach (var item in phone)
 	        {
-		        itemss.Add(item);
-	        }
+		        comphone.Add(item);
+            }
 
-            ///
+            #endregion end of phone numbers
+
            foreach (DataGridViewRow item in datagridforItems.Rows)
            {
                if (!string.IsNullOrEmpty(item.Cells[3].ToString()))
@@ -248,15 +268,37 @@ namespace MrSales_Manager
                    numberOfItemss = i;
                }
            }
-           
 
-            Printing p = new Printing("logo","Decent Digital Tech",phone,"50",Convert.ToDecimal(txtunitprice.Text),Convert.ToInt32(txtgross.Text),numberOfItemss,itemss);
-            p.print();
+            //items
+
+            List<string> myItemsList = new List<string>();
+            if (datagridforItems.Rows[0].Cells[0].Value!=null)
+           {
+               for (int i = 0; i < datagridforItems.Rows.Count - 1; i++)
+               {
+                  var s= datagridforItems.Rows[i].Cells[0].Value;
+                   myItemsList.Add(s.ToString());
+
+               }
+           }
+
+            //prices
+            List<string> myprice = new List<string>();
+            for (int i = 0; i < datagridforItems.Rows.Count-1; i++)
+			{
+			 var price = datagridforItems.Rows[i].Cells[2].Value;
+                myprice.Add(price.ToString());
+			}
+
+            Random rand = new Random();
+
+           Printing p = new Printing("","Decent Digital technologies",txtsubtotal.Text,rand.Next(12049).ToString(),paynow.Text,txtdiscount.Text,txtExtracharge.Text,myItemsList,comphone,myprice);
+                p.print();
             
         }
 
        
-
+        // save customer information
         private void SaveCustomerEvent(object sender, EventArgs e)
         {
 
@@ -287,39 +329,12 @@ namespace MrSales_Manager
                 MetroMessageBox.Show(this,"Customers name can not be empty");
             }
            
-            //try
-            //{
-            //    customer mmcustomer = new customer()
-            //    {
-
-            //        customerName = txtcustomername.Text,
-            //        customerPhone = txtcustomerphonenumber.Text,
-            //        customerId = id
-            //    };
-
-            //    db.customers.InsertOnSubmit(mmcustomer);
-
-            //    try
-            //    {
-            //        db.SubmitChanges();
-            //        MessageBox.Show("Saved");
-            //    }
-            //    catch (Exception ex)
-            //    {
-
-            //        MessageBox.Show(ex.Message);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    MessageBox.Show(ex.Message);
-            //}
-            
             
            
         }
 
+        //report tab
+        
         private void txtcustomername_TextChanged(object sender, EventArgs e)
         {
             var details = from detail in db.customers
@@ -337,6 +352,20 @@ namespace MrSales_Manager
         {
 
            
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var query = from saleInfo in db.dailySales where saleInfo.date>= dateTimePicker1.Value
+                        select saleInfo;
+            foreach (var item in query.Take(10))
+            {
+                metroGrid1.Rows.Add(item.totalSaleToday,item.date);
+            }
+            
+
+
+
         }
 
         

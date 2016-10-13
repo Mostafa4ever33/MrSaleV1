@@ -59,6 +59,7 @@ namespace MrSales_Manager
             loading.ForeColor = Color.Teal;
             pictureBox1.Visible = true;
            
+            
             loginButton.Text = "Cancel";
             return Task.Delay(1000);
             
@@ -68,33 +69,42 @@ namespace MrSales_Manager
         /// shows user profile picture asynchronously
         /// </summary>
         /// <returns></returns>
-        public Task ShowUserPic()
+        public  Task ShowUserPic()
         {
-            
-            Bitmap bm;
-            string image = null;
-            try
-            {
-                _folderpath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                _fileName = System.IO.Path.Combine(_folderpath, "img");
-                image = System.IO.Path.Combine(_fileName, login());
-                bm = new Bitmap(image);
-               usertile.TileImage =bm;
-               
-            }
-            catch (Exception ex)
-            {
-                MetroMessageBox.Show(this,"Invalid User Name","Error",MessageBoxButtons.OK,MessageBoxIcon.Error,300);  
-                
-            }
-            
+           
+                Bitmap bm;
+                string image = null;
+                try
+                {
+                    Task.Factory.StartNew(() =>
+                    {
+                        _folderpath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                        _fileName = System.IO.Path.Combine(_folderpath, "img");
+                        image = System.IO.Path.Combine(_fileName, login());
+
+                        bm = new Bitmap(image);
+
+                        usertile.TileImage = bm;
+                    });
+
+
+                }
+                catch (Exception ex)
+                {
+                    MetroMessageBox.Show(this, "Invalid User Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, 300);
+
+                }
+           
 
             txtUsername.Enabled = false;
             loginButton.Location = new Point(350, 405);
             materialLabel2.Visible = true;
             txtPassword.Visible = true;
             loginButton.Text = "Login";
-            return Task.Delay(1000);
+            return  Task.Delay(0);
+         
+           
+            
 
         }
 
@@ -131,13 +141,15 @@ namespace MrSales_Manager
                 }
                 else
                 {
-                    await ShowUserPic();
+                await ShowUserPic();
+                    
 
                     var query = from staff in db.users
                                 where staff.password == txtPassword.Text && staff.username==txtUsername.Text
                                 select staff;
 
                     #region Start Foreach to check password
+                    // this foreach blog wil be execute only if there are values in the "query" collection
                     foreach (var item in query)
                     {
                         if (item.password!="")
@@ -147,6 +159,7 @@ namespace MrSales_Manager
                             txtPassword.Visible = false;
                             loginButton.Visible = false;
 
+                            //this wil run the method, that will show the loading animation
                             await ShowPicAnimationAsync();
 
 
@@ -165,8 +178,16 @@ namespace MrSales_Manager
                     #endregion foreach ends here
 
                     // the lines bellow executes if the password is not found in the database
-
-                    MetroMessageBox.Show(this, "invalid Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if (txtPassword.Text == "")
+                    {
+                       
+                       // MetroMessageBox.Show(this, "Kindly Enter Your Password", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MetroMessageBox.Show(this, "invalid Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    
 
 
                 }

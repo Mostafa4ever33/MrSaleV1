@@ -39,12 +39,12 @@ namespace MrSales_Manager
     partial void Insertcustomer(customer instance);
     partial void Updatecustomer(customer instance);
     partial void Deletecustomer(customer instance);
-    partial void InsertdailySale(dailySale instance);
-    partial void UpdatedailySale(dailySale instance);
-    partial void DeletedailySale(dailySale instance);
     partial void Insertpersale(persale instance);
     partial void Updatepersale(persale instance);
     partial void Deletepersale(persale instance);
+    partial void InsertdailySale(dailySale instance);
+    partial void UpdatedailySale(dailySale instance);
+    partial void DeletedailySale(dailySale instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -101,19 +101,19 @@ namespace MrSales_Manager
 			}
 		}
 		
-		public System.Data.Linq.Table<dailySale> dailySales
-		{
-			get
-			{
-				return this.GetTable<dailySale>();
-			}
-		}
-		
 		public System.Data.Linq.Table<persale> persales
 		{
 			get
 			{
 				return this.GetTable<persale>();
+			}
+		}
+		
+		public System.Data.Linq.Table<dailySale> dailySales
+		{
+			get
+			{
+				return this.GetTable<dailySale>();
 			}
 		}
 	}
@@ -568,116 +568,6 @@ namespace MrSales_Manager
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.dailySales")]
-	public partial class dailySale : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _dailySaleId;
-		
-		private string _totalSaleToday;
-		
-		private System.Data.Linq.Binary _date;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OndailySaleIdChanging(int value);
-    partial void OndailySaleIdChanged();
-    partial void OntotalSaleTodayChanging(string value);
-    partial void OntotalSaleTodayChanged();
-    partial void OndateChanging(System.Data.Linq.Binary value);
-    partial void OndateChanged();
-    #endregion
-		
-		public dailySale()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dailySaleId", DbType="Int NOT NULL", IsPrimaryKey=true, UpdateCheck=UpdateCheck.Never)]
-		public int dailySaleId2
-		{
-			get
-			{
-				return this._dailySaleId;
-			}
-			set
-			{
-				if ((this._dailySaleId != value))
-				{
-					this.OndailySaleIdChanging(value);
-					this.SendPropertyChanging();
-					this._dailySaleId = value;
-					this.SendPropertyChanged("dailySaleId");
-					this.OndailySaleIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalSaleToday", DbType="VarChar(150)", UpdateCheck=UpdateCheck.Never)]
-		public string totalSaleToday1
-		{
-			get
-			{
-				return this._totalSaleToday;
-			}
-			set
-			{
-				if ((this._totalSaleToday != value))
-				{
-					this.OntotalSaleTodayChanging(value);
-					this.SendPropertyChanging();
-					this._totalSaleToday = value;
-					this.SendPropertyChanged("totalSaleToday");
-					this.OntotalSaleTodayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", AutoSync=AutoSync.Always, DbType="rowversion", IsDbGenerated=true, IsVersion=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary date1
-		{
-			get
-			{
-				return this._date;
-			}
-			set
-			{
-				if ((this._date != value))
-				{
-					this.OndateChanging(value);
-					this.SendPropertyChanging();
-					this._date = value;
-					this.SendPropertyChanged("date");
-					this.OndateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.persale")]
 	public partial class persale : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -811,6 +701,116 @@ namespace MrSales_Manager
 					this._totalAmount = value;
 					this.SendPropertyChanged("totalAmount");
 					this.OntotalAmountChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.dailySales")]
+	public partial class dailySale : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _dailySaleId;
+		
+		private string _totalSaleToday;
+		
+		private System.Nullable<System.DateTime> _date;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OndailySaleIdChanging(int value);
+    partial void OndailySaleIdChanged();
+    partial void OntotalSaleTodayChanging(string value);
+    partial void OntotalSaleTodayChanged();
+    partial void OndateChanging(System.Nullable<System.DateTime> value);
+    partial void OndateChanged();
+    #endregion
+		
+		public dailySale()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dailySaleId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int dailySaleId
+		{
+			get
+			{
+				return this._dailySaleId;
+			}
+			set
+			{
+				if ((this._dailySaleId != value))
+				{
+					this.OndailySaleIdChanging(value);
+					this.SendPropertyChanging();
+					this._dailySaleId = value;
+					this.SendPropertyChanged("dailySaleId");
+					this.OndailySaleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalSaleToday", DbType="VarChar(150)")]
+		public string totalSaleToday
+		{
+			get
+			{
+				return this._totalSaleToday;
+			}
+			set
+			{
+				if ((this._totalSaleToday != value))
+				{
+					this.OntotalSaleTodayChanging(value);
+					this.SendPropertyChanging();
+					this._totalSaleToday = value;
+					this.SendPropertyChanged("totalSaleToday");
+					this.OntotalSaleTodayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> date
+		{
+			get
+			{
+				return this._date;
+			}
+			set
+			{
+				if ((this._date != value))
+				{
+					this.OndateChanging(value);
+					this.SendPropertyChanging();
+					this._date = value;
+					this.SendPropertyChanged("date");
+					this.OndateChanged();
 				}
 			}
 		}
