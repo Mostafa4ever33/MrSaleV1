@@ -315,7 +315,7 @@ namespace MrSales_Manager
 
             Random rand = new Random();
 
-           Printing p = new Printing("","Company Name",txtsubtotal.Text,rand.Next(12049).ToString(),paynow.Text,txtdiscount.Text,txtExtracharge.Text,myItemsList,comphone,myprice);
+           Printing p = new Printing("","Company Name",txtsubtotal.Text,rand.Next(12049).ToString(),txtPaynow.Text,txtdiscount.Text,txtExtracharge.Text,myItemsList,comphone,myprice);
                 p.print();
             
         }
@@ -391,10 +391,83 @@ namespace MrSales_Manager
 
         }
 
-        
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            checkout();
+        }
 
+        private void checkout()
+        {
+            Regex checkInput = new Regex("[0-9]");
+            #region full payment code starts
+            if (rbFullPay.Checked)
+            {
+
+                if (checkInput.IsMatch(txtgross.Text))
+                {
+                    ////check if the extra charge textbox contains ilegal characters
+                     //check if the discount textbox contains ilegal characters
+                    if (checkInput.IsMatch(txtdiscount.Text))
+                    {
+                        
+                            txtNetTotal.Text = (Convert.ToDecimal(txtgross.Text) - Convert.ToDecimal(txtdiscount.Text)).ToString();
+                            txtPaynow.Text = (Convert.ToDecimal(txtNetTotal.Text)).ToString();
+                        
+                    }
+                   // check if the both have ilegal characters
+                    else if (checkInput.IsMatch(txtExtracharge.Text))
+                    {
+                        
+                            txtNetTotal.Text = (Convert.ToDecimal(txtgross.Text) + Convert.ToDecimal(txtExtracharge.Text)).ToString();
+                            txtPaynow.Text = (Convert.ToDecimal(txtNetTotal.Text)).ToString();
+                        
+                    }
+                    
+                        //check if both extrachage and discount have invalid characters
+                    else if (checkInput.IsMatch(txtExtracharge.Text) && checkInput.IsMatch(txtdiscount.Text))
+                    {
+                       
+                            txtNetTotal.Text = (Convert.ToDecimal(txtgross.Text) + Convert.ToDecimal(txtExtracharge.Text) - Convert.ToDecimal(txtdiscount.Text)).ToString();
+                            txtPaynow.Text = (Convert.ToDecimal(txtNetTotal.Text)).ToString();
+                     
+                    }
+                    else
+                    {
+                        txtNetTotal.Text = (Convert.ToDecimal(txtgross.Text)).ToString();
+                        txtPaynow.Text = txtNetTotal.Text;
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("You entered invalid characters");
+
+                }
+            }
+            #endregion fullpayment code ended 
+            #region partpayment code starts
+            else
+            {
+             
+                if (checkInput.IsMatch(txtPartPayment.Text))
+                {
+                    MessageBox.Show("hello");
+                }
+                else
+                {
+                    MessageBox.Show("You entered invalid characters");
+                }
+            }
+            #endregion part payment code ends
+
+
+        }
+
+           
+}
+}
      
 
        
-    }
-}
+
+

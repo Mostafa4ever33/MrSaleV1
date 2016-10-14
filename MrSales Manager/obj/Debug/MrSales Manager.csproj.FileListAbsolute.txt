@@ -21,7 +21,6 @@ C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Resources\save.png
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\EntityFramework.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\EntityFramework.xml
-C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales Manager.csprojResolveAssemblyReference.cache
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\salesprint.dll
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\salesprint.pdb
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\antlr.runtime.dll
@@ -55,3 +54,4 @@ C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\System.Windows.Interactivity.xml
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\Vestris.ResourceLib.xml
 C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\bin\Debug\WpfContrib.xml
+C:\Users\ezesunday\Documents\Visual Studio 2012\Projects\MrSales Manager\MrSales Manager\obj\Debug\MrSales Manager.csprojResolveAssemblyReference.cache
