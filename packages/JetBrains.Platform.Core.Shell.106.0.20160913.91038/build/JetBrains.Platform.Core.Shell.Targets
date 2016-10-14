@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFrameworkVersionNumberBohelor Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*'))">$([MSBuild]::Add($([MSBuild]::Multiply($([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$1')), 1000)), $([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$2'))))</TargetFrameworkVersionNumberBohelor>
+    <TargetFrameworkVersionNumberBohelor Condition="'$(TargetFrameworkVersionNumberBohelor)' == ''">65535</TargetFrameworkVersionNumberBohelor>
+  </PropertyGroup>
+  <ItemGroup>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.BuildEngine.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.BuildInterfaces.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.ComponentModel.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Interop.WinApi.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Metadata.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.MsBuild.Util.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.NuGet.Frameworks.Wrapper.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Satellite.exe">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Shell.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Shell.SinceClr4.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.UI.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Util.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.UsageStatistics.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Platform.BuildEngine" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.BuildEngine.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.BuildInterfaces" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.BuildInterfaces.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.ComponentModel" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.ComponentModel.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.Interop.WinApi" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Interop.WinApi.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.Metadata" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Metadata.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.MsBuild.Util" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.MsBuild.Util.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.NuGet.Frameworks.Wrapper" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.NuGet.Frameworks.Wrapper.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.Satellite" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Satellite.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.Shell" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Shell.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.Shell.SinceClr4" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Shell.SinceClr4.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.UI" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.UI.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Platform.Util" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Util.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.UsageStatistics" Condition="($(TargetFrameworkVersionNumberBohelor) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.UsageStatistics.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Satellite.exe.config">
+      <TargetPath>JetBrains.Platform.Satellite.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetLauncher32.exe">
+      <TargetPath>JetLauncher32.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetLauncher32c.exe">
+      <TargetPath>JetLauncher32c.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetLauncher64.exe">
+      <TargetPath>JetLauncher64.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetLauncher64c.exe">
+      <TargetPath>JetLauncher64c.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\linux-x64.dbg\libleveldb.so">
+      <TargetPath>linux-x64.dbg\libleveldb.so</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\linux-x64\libleveldb.so">
+      <TargetPath>linux-x64\libleveldb.so</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\macos-x64.dbg\libleveldb.dylib">
+      <TargetPath>macos-x64.dbg\libleveldb.dylib</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\macos-x64\libleveldb.dylib">
+      <TargetPath>macos-x64\libleveldb.dylib</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\x64.dbg\libleveldb.dll">
+      <TargetPath>x64.dbg\libleveldb.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\x64\JetComponentManager.dll">
+      <TargetPath>x64\JetComponentManager.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\x64\JetNativeHooks.dll">
+      <TargetPath>x64\JetNativeHooks.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\x64\libleveldb.dll">
+      <TargetPath>x64\libleveldb.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\x86.dbg\libleveldb.dll">
+      <TargetPath>x86.dbg\libleveldb.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\x86\JetComponentManager.dll">
+      <TargetPath>x86\JetComponentManager.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\x86\JetNativeHooks.dll">
+      <TargetPath>x86\JetNativeHooks.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\x86\libleveldb.dll">
+      <TargetPath>x86\libleveldb.dll</TargetPath>
+    </JetContent>
+  </ItemGroup>
+  <ItemGroup>
+    <JetMetadata Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Platform.Core.Shell.JetMetadata.sstg" />
+  </ItemGroup>
+</Project>

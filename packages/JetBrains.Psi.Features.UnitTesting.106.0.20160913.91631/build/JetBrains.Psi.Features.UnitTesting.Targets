@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFrameworkVersionNumberJolymec Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*'))">$([MSBuild]::Add($([MSBuild]::Multiply($([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$1')), 1000)), $([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$2'))))</TargetFrameworkVersionNumberJolymec>
+    <TargetFrameworkVersionNumberJolymec Condition="'$(TargetFrameworkVersionNumberJolymec)' == ''">65535</TargetFrameworkVersionNumberJolymec>
+  </PropertyGroup>
+  <ItemGroup>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.x64.exe">
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunnerFramework.dll">
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestFramework.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTesting.Analysis.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTesting.Analysis.VB.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.JavaScript.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.MSTest.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.MSTest09.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.nUnit.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.Xunit.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.dotMemoryUnit.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.JavaScript.dll">
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.MSTest09.dll">
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.nUnit.dll">
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.Xunit.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.ReSharper.TaskRunner.x64" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 3005) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.x64.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.TaskRunnerFramework" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 3005) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunnerFramework.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestFramework" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestFramework.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTesting.Analysis" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTesting.Analysis.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTesting.Analysis.VB" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTesting.Analysis.VB.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestProvider.JavaScript" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.JavaScript.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestProvider.MSTest" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.MSTest.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestProvider.MSTest09" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.MSTest09.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestProvider.nUnit" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.nUnit.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestProvider.Xunit" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestProvider.Xunit.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestRunner.dotMemoryUnit" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.dotMemoryUnit.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestRunner.JavaScript" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 3005) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.JavaScript.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestRunner.MSTest09" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 3005) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.MSTest09.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestRunner.nUnit" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 3005) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.nUnit.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>3005</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.UnitTestRunner.Xunit" Condition="($(TargetFrameworkVersionNumberJolymec) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.Xunit.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\PhantomJSTestRunner.js">
+      <TargetPath>Definitions\PhantomJSTestRunner.js</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR4.exe">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR4.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR4.exe.config">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR4.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR4.pdb">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR4.pdb</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR4.x64.exe">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR4.x64.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR4.x64.exe.config">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR4.x64.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR4.x64.pdb">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR4.x64.pdb</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR4.x64.xml">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR4.x64.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR4.xml">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR4.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR45.exe">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR45.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR45.exe.config">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR45.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR45.pdb">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR45.pdb</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR45.x64.exe">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR45.x64.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR45.x64.exe.config">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR45.x64.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR45.x64.pdb">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR45.x64.pdb</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR45.x64.xml">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR45.x64.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.CLR45.xml">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.CLR45.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.exe">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.exe.config">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.pdb">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.pdb</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.x64.exe.config">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.x64.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.TaskRunner.xml">
+      <TargetPath>JetBrains.ReSharper.TaskRunner.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.nUnit26.dll">
+      <TargetPath>JetBrains.ReSharper.UnitTestRunner.nUnit26.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.nUnit26.pdb">
+      <TargetPath>JetBrains.ReSharper.UnitTestRunner.nUnit26.pdb</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.nUnit26.xml">
+      <TargetPath>JetBrains.ReSharper.UnitTestRunner.nUnit26.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.nUnit30.dll">
+      <TargetPath>JetBrains.ReSharper.UnitTestRunner.nUnit30.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.nUnit30.pdb">
+      <TargetPath>JetBrains.ReSharper.UnitTestRunner.nUnit30.pdb</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.UnitTestRunner.nUnit30.xml">
+      <TargetPath>JetBrains.ReSharper.UnitTestRunner.nUnit30.xml</TargetPath>
+    </JetContent>
+  </ItemGroup>
+  <ItemGroup>
+    <JetMetadata Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Psi.Features.UnitTesting.JetMetadata.sstg" />
+  </ItemGroup>
+</Project>

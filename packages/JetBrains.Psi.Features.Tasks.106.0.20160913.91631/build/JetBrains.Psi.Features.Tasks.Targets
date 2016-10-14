@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFrameworkVersionNumberVumowyv Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*'))">$([MSBuild]::Add($([MSBuild]::Multiply($([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$1')), 1000)), $([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$2'))))</TargetFrameworkVersionNumberVumowyv>
+    <TargetFrameworkVersionNumberVumowyv Condition="'$(TargetFrameworkVersionNumberVumowyv)' == ''">65535</TargetFrameworkVersionNumberVumowyv>
+  </PropertyGroup>
+  <ItemGroup>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\CsLex.exe">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\ErrorsGen.exe">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Psi.Features.Tasks.Build.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JsLibGen.exe">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\LibGeneratorUtil.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiGen.exe">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiGen.Targets.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\TokenGenerator.exe">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\TsLibGen.exe">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CsLex" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\CsLex.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="ErrorsGen" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\ErrorsGen.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Psi.Features.Tasks.Build" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Psi.Features.Tasks.Build.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JsLibGen" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JsLibGen.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="LibGeneratorUtil" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\LibGeneratorUtil.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="PsiGen" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\PsiGen.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="PsiGen.Targets" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\PsiGen.Targets.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="TokenGenerator" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\TokenGenerator.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="TsLibGen" Condition="($(TargetFrameworkVersionNumberVumowyv) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\TsLibGen.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\JsLibGen.exe.config">
+      <TargetPath>JsLibGen.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\antlr.runtime.dll">
+      <TargetPath>PsiTasks\antlr.runtime.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\CsLex.exe">
+      <TargetPath>PsiTasks\CsLex.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\CsLex.Tasks">
+      <TargetPath>PsiTasks\CsLex.Tasks</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\CsLex.xml">
+      <TargetPath>PsiTasks\CsLex.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\ErrorDescription.xsd">
+      <TargetPath>PsiTasks\ErrorDescription.xsd</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\ErrorsGen.exe">
+      <TargetPath>PsiTasks\ErrorsGen.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\ErrorsGen.Tasks">
+      <TargetPath>PsiTasks\ErrorsGen.Tasks</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\ErrorsGen.xml">
+      <TargetPath>PsiTasks\ErrorsGen.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\JetBrains.Psi.Features.Tasks.Build.dll">
+      <TargetPath>PsiTasks\JetBrains.Psi.Features.Tasks.Build.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\JetBrains.Psi.Features.Tasks.Build.xml">
+      <TargetPath>PsiTasks\JetBrains.Psi.Features.Tasks.Build.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\JsLibGen.exe">
+      <TargetPath>PsiTasks\JsLibGen.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\JsLibGen.exe.config">
+      <TargetPath>PsiTasks\JsLibGen.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\JsLibGen.Tasks">
+      <TargetPath>PsiTasks\JsLibGen.Tasks</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\JsLibGen.xml">
+      <TargetPath>PsiTasks\JsLibGen.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\LibGeneratorUtil.dll">
+      <TargetPath>PsiTasks\LibGeneratorUtil.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\LibGeneratorUtil.xml">
+      <TargetPath>PsiTasks\LibGeneratorUtil.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\nunit.framework.dll">
+      <TargetPath>PsiTasks\nunit.framework.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\nunit.framework.xml">
+      <TargetPath>PsiTasks\nunit.framework.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\NVelocity.dll">
+      <TargetPath>PsiTasks\NVelocity.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\NVelocity.xml">
+      <TargetPath>PsiTasks\NVelocity.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\PsiGen.exe">
+      <TargetPath>PsiTasks\PsiGen.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\PsiGen.Targets.dll">
+      <TargetPath>PsiTasks\PsiGen.Targets.dll</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\PsiGen.Targets.xml">
+      <TargetPath>PsiTasks\PsiGen.Targets.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\PsiGen.Tasks">
+      <TargetPath>PsiTasks\PsiGen.Tasks</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\PsiGen.xml">
+      <TargetPath>PsiTasks\PsiGen.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TokenGenerator.exe">
+      <TargetPath>PsiTasks\TokenGenerator.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TokenGenerator.Tasks">
+      <TargetPath>PsiTasks\TokenGenerator.Tasks</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TokenGenerator.xml">
+      <TargetPath>PsiTasks\TokenGenerator.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TsLibGen.exe">
+      <TargetPath>PsiTasks\TsLibGen.exe</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TsLibGen.exe.config">
+      <TargetPath>PsiTasks\TsLibGen.exe.config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TsLibGen.Tasks">
+      <TargetPath>PsiTasks\TsLibGen.Tasks</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TsLibGen.xml">
+      <TargetPath>PsiTasks\TsLibGen.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\Unicode.lex">
+      <TargetPath>PsiTasks\Unicode.lex</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\TsLibGen.exe.config">
+      <TargetPath>TsLibGen.exe.config</TargetPath>
+    </JetContent>
+  </ItemGroup>
+  <ItemGroup>
+    <JetMetadata Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Psi.Features.Tasks.JetMetadata.sstg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\CsLex.Targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\ErrorsGen.Targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\JsLibGen.Targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TsLibGen.Targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\PsiGen.Targets" />
+  <Import Project="$(MSBuildThisFileDirectory)..\DotFiles\PsiTasks\TokenGenerator.Targets" />
+</Project>

@@ -1,0 +1,988 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFrameworkVersionNumberVyriwol Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*'))">$([MSBuild]::Add($([MSBuild]::Multiply($([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$1')), 1000)), $([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$2'))))</TargetFrameworkVersionNumberVyriwol>
+    <TargetFrameworkVersionNumberVyriwol Condition="'$(TargetFrameworkVersionNumberVyriwol)' == ''">65535</TargetFrameworkVersionNumberVyriwol>
+  </PropertyGroup>
+  <ItemGroup>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Decompiler.Core.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Psi.Features.UI.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.BuildScripts.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.CSharp.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.ExternalSources.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.ExternalSources.VB.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Protobuf.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Resx.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.VB.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Web.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Xaml.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Xml.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.Asp.CSharp.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.Asp.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.Asp.VB.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.CSharp.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.JavaScript.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.VB.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.Xaml.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.BuildScripts.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.CSharp.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.IL.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Protobuf.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.RegExp.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Resx.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.VB.ConstantCalculatorLib.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.VB.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Web.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Xaml.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Xml.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Resources.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\OperatorsResolveCacheGenerator.exe">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Decompiler.Core" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Decompiler.Core.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.Psi.Features.UI" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Psi.Features.UI.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.BuildScripts" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.BuildScripts.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.CSharp" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.CSharp.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.ExternalSources" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.ExternalSources.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.ExternalSources.CSharp.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.ExternalSources.VB" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.ExternalSources.VB.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Protobuf" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Protobuf.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Resx" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Resx.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.VB" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.VB.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Web" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Web.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Xaml" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Xaml.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Feature.Services.Xml" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Feature.Services.Xml.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.I18n.Services" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.I18n.Services.Asp" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.Asp.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.I18n.Services.Asp.CSharp" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.Asp.CSharp.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.I18n.Services.Asp.VB" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.Asp.VB.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.I18n.Services.CSharp" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.CSharp.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.I18n.Services.JavaScript" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.JavaScript.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.I18n.Services.VB" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.VB.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.I18n.Services.Xaml" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.I18n.Services.Xaml.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.BuildScripts" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.BuildScripts.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.CSharp" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.CSharp.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.IL" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.IL.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Protobuf" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Protobuf.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.RegExp" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.RegExp.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Resx" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Resx.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.VB" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.VB.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.VB.ConstantCalculatorLib" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.VB.ConstantCalculatorLib.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Web" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Web.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Xaml" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Xaml.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Psi.Xml" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Psi.Xml.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.Resources" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.Resources.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="OperatorsResolveCacheGenerator" Condition="($(TargetFrameworkVersionNumberVyriwol) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\OperatorsResolveCacheGenerator.exe</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\appmanifest.xml">
+      <TargetPath>CssDefinitions\appmanifest.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\caniuse-support-tables.xml">
+      <TargetPath>CssDefinitions\caniuse-support-tables.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-box.xml">
+      <TargetPath>CssDefinitions\css-box.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-cascade-4.xml">
+      <TargetPath>CssDefinitions\css-cascade-4.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-compositing-1.xml">
+      <TargetPath>CssDefinitions\css-compositing-1.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-counter-styles-3.xml">
+      <TargetPath>CssDefinitions\css-counter-styles-3.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-device-adapt.xml">
+      <TargetPath>CssDefinitions\css-device-adapt.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-display-3.xml">
+      <TargetPath>CssDefinitions\css-display-3.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-inline-3.xml">
+      <TargetPath>CssDefinitions\css-inline-3.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-lists-3.xml">
+      <TargetPath>CssDefinitions\css-lists-3.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-masking-1.xml">
+      <TargetPath>CssDefinitions\css-masking-1.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-overflow-3.xml">
+      <TargetPath>CssDefinitions\css-overflow-3.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-page-floats.xml">
+      <TargetPath>CssDefinitions\css-page-floats.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-parsing-tests.xml">
+      <TargetPath>CssDefinitions\css-parsing-tests.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-regions.xml">
+      <TargetPath>CssDefinitions\css-regions.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-ruby-1.xml">
+      <TargetPath>CssDefinitions\css-ruby-1.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-scoping1.xml">
+      <TargetPath>CssDefinitions\css-scoping1.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-shapes-1.xml">
+      <TargetPath>CssDefinitions\css-shapes-1.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-snappoints-1.xml">
+      <TargetPath>CssDefinitions\css-snappoints-1.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-text-3.xml">
+      <TargetPath>CssDefinitions\css-text-3.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-text-decor-3.xml">
+      <TargetPath>CssDefinitions\css-text-decor-3.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-var.xml">
+      <TargetPath>CssDefinitions\css-var.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css-will-change.xml">
+      <TargetPath>CssDefinitions\css-will-change.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css.xsd">
+      <TargetPath>CssDefinitions\css.xsd</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css1.0.xml">
+      <TargetPath>CssDefinitions\css1.0.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css2.0.xml">
+      <TargetPath>CssDefinitions\css2.0.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css2.1.xml">
+      <TargetPath>CssDefinitions\css2.1.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-align.xml">
+      <TargetPath>CssDefinitions\css3-align.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-animations.xml">
+      <TargetPath>CssDefinitions\css3-animations.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-background.xml">
+      <TargetPath>CssDefinitions\css3-background.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-break.xml">
+      <TargetPath>CssDefinitions\css3-break.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-filter-effects.xml">
+      <TargetPath>CssDefinitions\css3-filter-effects.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-flexbox.xml">
+      <TargetPath>CssDefinitions\css3-flexbox.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-fonts.xml">
+      <TargetPath>CssDefinitions\css3-fonts.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-gcpm.xml">
+      <TargetPath>CssDefinitions\css3-gcpm.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-grid.xml">
+      <TargetPath>CssDefinitions\css3-grid.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-images.xml">
+      <TargetPath>CssDefinitions\css3-images.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-line-grid.xml">
+      <TargetPath>CssDefinitions\css3-line-grid.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-mediaqueries.xml">
+      <TargetPath>CssDefinitions\css3-mediaqueries.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-page.xml">
+      <TargetPath>CssDefinitions\css3-page.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-positioning.xml">
+      <TargetPath>CssDefinitions\css3-positioning.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-preslev.xml">
+      <TargetPath>CssDefinitions\css3-preslev.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-speech.xml">
+      <TargetPath>CssDefinitions\css3-speech.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-transforms.xml">
+      <TargetPath>CssDefinitions\css3-transforms.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-transitions.xml">
+      <TargetPath>CssDefinitions\css3-transitions.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-ui.xml">
+      <TargetPath>CssDefinitions\css3-ui.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3-writing-modes.xml">
+      <TargetPath>CssDefinitions\css3-writing-modes.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css3.0.xml">
+      <TargetPath>CssDefinitions\css3.0.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css4-images.xml">
+      <TargetPath>CssDefinitions\css4-images.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\css4-selectors.xml">
+      <TargetPath>CssDefinitions\css4-selectors.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\custom-elements.xml">
+      <TargetPath>CssDefinitions\custom-elements.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\fontface.xml">
+      <TargetPath>CssDefinitions\fontface.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\ie-viewport.xml">
+      <TargetPath>CssDefinitions\ie-viewport.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\ie.xml">
+      <TargetPath>CssDefinitions\ie.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\jquery.xml">
+      <TargetPath>CssDefinitions\jquery.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\mozilla.xml">
+      <TargetPath>CssDefinitions\mozilla.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\mso.xml">
+      <TargetPath>CssDefinitions\mso.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\opera.xml">
+      <TargetPath>CssDefinitions\opera.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\ReadMe.txt">
+      <TargetPath>CssDefinitions\ReadMe.txt</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\rules.xml">
+      <TargetPath>CssDefinitions\rules.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\svg.xml">
+      <TargetPath>CssDefinitions\svg.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\view-mode.xml">
+      <TargetPath>CssDefinitions\view-mode.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\webkit.xml">
+      <TargetPath>CssDefinitions\webkit.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\CssDefinitions\_browsers.xml">
+      <TargetPath>CssDefinitions\_browsers.xml</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\lib.d.ts">
+      <TargetPath>Definitions\lib.d.ts</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\lib.es6.d.ts">
+      <TargetPath>Definitions\lib.es6.d.ts</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\node.d.ts">
+      <TargetPath>Definitions\node.d.ts</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json-schema.org_draft-04_schema">
+      <TargetPath>Definitions\schemas\http___json-schema.org_draft-04_schema</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json-schema.org_draft-04_schema.rsetag">
+      <TargetPath>Definitions\schemas\http___json-schema.org_draft-04_schema.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_babelrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_babelrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_babelrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_babelrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_band-manifest">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_band-manifest</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_band-manifest.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_band-manifest.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_bootstraprc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_bootstraprc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_bootstraprc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_bootstraprc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_bower">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_bower</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_bower.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_bower.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_bowerrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_bowerrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_bowerrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_bowerrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_chrome-manifest">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_chrome-manifest</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_chrome-manifest.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_chrome-manifest.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_chutzpah">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_chutzpah</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_chutzpah.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_chutzpah.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_coffeelint">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_coffeelint</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_coffeelint.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_coffeelint.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_component">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_component</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_component.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_component.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_composer">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_composer</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_composer.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_composer.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_config">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_config</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_config.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_config.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_contribute">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_contribute</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_contribute.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_contribute.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_csscomb">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_csscomb</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_csscomb.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_csscomb.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_csslintrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_csslintrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_csslintrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_csslintrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_epr-manifest">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_epr-manifest</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_epr-manifest.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_epr-manifest.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_eslintrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_eslintrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_eslintrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_eslintrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_global">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_global</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_global.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_global.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-clean-task">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-clean-task</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-clean-task.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-clean-task.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-copy-task">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-copy-task</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-copy-task.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-copy-task.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-cssmin-task">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-cssmin-task</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-cssmin-task.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-cssmin-task.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-jshint-task">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-jshint-task</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-jshint-task.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-jshint-task.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-task">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-task</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-task.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-task.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-watch-task">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-watch-task</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_grunt-watch-task.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_grunt-watch-task.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_host-meta">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_host-meta</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_host-meta.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_host-meta.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_htmlhint">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_htmlhint</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_htmlhint.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_htmlhint.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jsbeautifyrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jsbeautifyrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jsbeautifyrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jsbeautifyrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jscsrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jscsrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jscsrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jscsrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jshintrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jshintrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jshintrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jshintrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jsinspectrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jsinspectrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jsinspectrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jsinspectrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_json-patch">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_json-patch</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_json-patch.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_json-patch.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jsonld">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jsonld</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_jsonld.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_jsonld.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_launchsettings">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_launchsettings</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_launchsettings.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_launchsettings.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_ninjs">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_ninjs</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_ninjs.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_ninjs.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_nuget-project">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_nuget-project</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_nuget-project.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_nuget-project.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_package">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_package</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_package.manifest">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_package.manifest</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_package.manifest.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_package.manifest.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_package.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_package.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_pattern">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_pattern</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_pattern.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_pattern.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta3">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta3</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta3.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta3.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta4">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta4</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta4.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta4.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta5">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta5</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta5.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta5.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta6">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta6</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta6.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta6.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta8">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta8</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta8.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project-1.0.0-beta8.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_project.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_project.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_resjson">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_resjson</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_resjson.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_resjson.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_resume">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_resume</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_resume.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_resume.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_sarif">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_sarif</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_sarif.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_sarif.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_schema-catalog">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_schema-catalog</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_schema-catalog.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_schema-catalog.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_settings.job">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_settings.job</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_settings.job.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_settings.job.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_sourcemap-v3.json">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_sourcemap-v3.json</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_sourcemap-v3.json.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_sourcemap-v3.json.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_swagger-2.0">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_swagger-2.0</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_swagger-2.0.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_swagger-2.0.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_templatesources.json">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_templatesources.json</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_templatesources.json.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_templatesources.json.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_tsconfig">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_tsconfig</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_tsconfig.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_tsconfig.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_tsd">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_tsd</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_tsd.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_tsd.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_tsdrc">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_tsdrc</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_tsdrc.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_tsdrc.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_tslint">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_tslint</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_tslint.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_tslint.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_typings">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_typings</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_typings.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_typings.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_web-manifest">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_web-manifest</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_web-manifest.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_web-manifest.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_webjob-publish-settings">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_webjob-publish-settings</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_webjob-publish-settings.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_webjob-publish-settings.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_webjobs-list">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_webjobs-list</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___json.schemastore.org_webjobs-list.rsetag">
+      <TargetPath>Definitions\schemas\http___json.schemastore.org_webjobs-list.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___xunit.github.io_schema_v2.1-rc1_xunit.runner.schema.json">
+      <TargetPath>Definitions\schemas\http___xunit.github.io_schema_v2.1-rc1_xunit.runner.schema.json</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schemas\http___xunit.github.io_schema_v2.1-rc1_xunit.runner.schema.json.rsetag">
+      <TargetPath>Definitions\schemas\http___xunit.github.io_schema_v2.1-rc1_xunit.runner.schema.json.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schema_catalog.json">
+      <TargetPath>Definitions\schema_catalog.json</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\schema_catalog.json.rsetag">
+      <TargetPath>Definitions\schema_catalog.json.rsetag</TargetPath>
+    </JetContent>
+    <JetContent Include="$(MSBuildThisFileDirectory)..\DotFiles\Definitions\spdx.json">
+      <TargetPath>Definitions\spdx.json</TargetPath>
+    </JetContent>
+  </ItemGroup>
+  <ItemGroup>
+    <JetMetadata Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.Psi.Features.Core.JetMetadata.sstg" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.MsBuild.Util</name>
+    </assembly>
+    <members>
+        <member name="F:JetBrains.Platform.MsBuild.Util.ProjectInstanceIdStorage.myRealProjectFilesToRelativeIds">
+            <summary>
+            List of project instance ids for each known project.
+            </summary>
+        </member>
+    </members>
+</doc>

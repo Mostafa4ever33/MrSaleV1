@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.ProjectModel.NuGet</name>
+    </assembly>
+    <members>
+        <member name="M:JetBrains.ProjectModel.NuGet.PackageManagement.NuGetSolutionManager.GetNuGetProjectSafeName(NuGet.ProjectManagement.NuGetProject)">
+            <summary>
+            Return short name if it's non-ambiguous.
+            Return CustomUniqueName for projects that have ambigous names (such as same project name under different solution folder)
+            Example: return Folder1/ProjectA if there are both ProjectA under Folder1 and Folder2
+            </summary>    
+        </member>
+        <member name="M:JetBrains.ProjectModel.NuGet.ProjectManagement.ProjectSystems.BuildIntegratedNuGetProject.AddDependency(NuGet.Packaging.Core.PackageDependency,System.Threading.CancellationToken)">
+            <summary>
+            Install a package using the global packages folder.
+            </summary>
+        </member>
+        <member name="M:JetBrains.ProjectModel.NuGet.ProjectManagement.ProjectSystems.BuildIntegratedNuGetProject.RemoveDependency(System.String,NuGet.ProjectManagement.INuGetProjectContext,System.Threading.CancellationToken)">
+            <summary>
+            Uninstall a package from the config file.
+            </summary>
+        </member>
+        <member name="M:JetBrains.ProjectModel.NuGet.ProjectManagement.ProjectSystems.BuildIntegratedNuGetProject.ExecuteInitScriptAsync(NuGet.Packaging.Core.PackageIdentity,System.String,NuGet.ProjectManagement.INuGetProjectContext,System.Boolean)">
+            <summary>
+            Script executor hook
+            </summary>
+        </member>
+        <member name="P:JetBrains.ProjectModel.NuGet.ProjectManagement.ProjectSystems.BuildIntegratedNuGetProject.JsonConfigPath">
+            <summary>
+            project.json path
+            </summary>
+        </member>
+        <member name="P:JetBrains.ProjectModel.NuGet.ProjectManagement.ProjectSystems.BuildIntegratedNuGetProject.PackageSpec">
+            <summary>
+            Parsed project.json file
+            </summary>
+        </member>
+        <member name="P:JetBrains.ProjectModel.NuGet.ProjectManagement.ProjectSystems.BuildIntegratedNuGetProject.ProjectName">
+            <summary>
+            Project name
+            </summary>
+        </member>
+        <member name="P:JetBrains.ProjectModel.NuGet.ProjectManagement.ProjectSystems.BuildIntegratedNuGetProject.MSBuildNuGetProjectSystem">
+            <summary>
+            The underlying msbuild project system
+            </summary>
+        </member>
+        <member name="M:JetBrains.ProjectModel.NuGet.ProjectManagement.ProjectSystems.NuGetMsBuildProjectSystem.GetFullPaths(System.String)">
+            <summary>
+            Returns the list of full paths of all files in the project whose name is <paramref name="fileName"/>.
+            </summary>
+            <param name="fileName">The file name to search.</param>
+            <returns>The list of full paths.</returns>
+        </member>
+        <member name="F:JetBrains.ProjectModel.NuGet.Protocol.NuGetConfigHelper.DefaultSettingsFileName">
+            <summary>
+            Default file name for a settings file is 'NuGet.config'
+            Also, the machine level setting file at '%APPDATA%\NuGet' always uses this name
+            </summary>
+        </member>
+        <member name="F:JetBrains.ProjectModel.NuGet.Protocol.NuGetConfigHelper.OrderedSettingsFileNames">
+            <summary>
+            NuGet config names with casing ordered by precedence.
+            </summary>
+        </member>
+    </members>
+</doc>

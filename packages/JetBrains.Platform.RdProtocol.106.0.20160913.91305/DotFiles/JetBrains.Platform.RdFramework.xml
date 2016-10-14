@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JetBrains.Platform.RdFramework</name>
+    </assembly>
+    <members>
+        <member name="M:JetBrains.Platform.RdFramework.Text.RdTextBuffer.#ctor(System.String,JetBrains.Platform.RdFramework.OriginKind)">
+            <summary>
+            Slave of the text buffer supports a list of changes that were introduced locally and can be rolled back when master buffer reports incompatible change
+            </summary>
+        </member>
+    </members>
+</doc>

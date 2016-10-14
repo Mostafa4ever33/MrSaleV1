@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetFrameworkVersionNumberVokohum Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*'))">$([MSBuild]::Add($([MSBuild]::Multiply($([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$1')), 1000)), $([System.Text.RegularExpressions.Regex]::Replace($(TargetFrameworkVersion), 'v(\d+)\.(\d+).*', '$2'))))</TargetFrameworkVersionNumberVokohum>
+    <TargetFrameworkVersionNumberVokohum Condition="'$(TargetFrameworkVersionNumberVokohum)' == ''">65535</TargetFrameworkVersionNumberVokohum>
+  </PropertyGroup>
+  <ItemGroup>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.SDK.Helper.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+    <JetReference Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.SDK.MsBuild.dll">
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </JetReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.ReSharper.SDK.Helper" Condition="($(TargetFrameworkVersionNumberVokohum) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.SDK.Helper.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+    <Reference Include="JetBrains.ReSharper.SDK.MsBuild" Condition="($(TargetFrameworkVersionNumberVokohum) &gt;= 4000) OR ('$(JetReferencesNoFilter)' == 'True')">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.SDK.MsBuild.dll</HintPath>
+      <Private>$(JetReferencesPrivate)</Private>
+      <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+      <TargetFrameworkVersionNumber>4000</TargetFrameworkVersionNumber>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <JetMetadata Include="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.ReSharper.SDK.Internal.JetMetadata.sstg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildThisFileDirectory)..\DotFiles\JetBrains.CommonSdk.targets" />
+</Project>

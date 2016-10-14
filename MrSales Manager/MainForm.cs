@@ -165,6 +165,9 @@ namespace MrSales_Manager
                     //unit  price
                     txtunitprice.Text = stuff.unitPrice;
 
+                    //subtotal
+                    txtsubtotal.Text = Convert.ToDecimal(stuff.unitPrice).ToString();
+
                     txtitemquantity.Enabled = true;
 
                 }
@@ -173,11 +176,15 @@ namespace MrSales_Manager
         }
 
     
-
+        /// <summary>
+        ///  actions in this method will execute if the txtitemquantity
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtitemquantity_ValueChanged(object sender, EventArgs e)
         {
 
-            if (Convert.ToInt32(txtitemquantity.Value) > 1)
+            if (Convert.ToDecimal(txtitemquantity.Value)>= 1)
             {
 
                 decimal sub = Convert.ToDecimal(txtunitprice.Text) * Convert.ToDecimal(txtitemquantity.Value);
@@ -199,23 +206,36 @@ namespace MrSales_Manager
             {
                 if (txtitemname.Text != "Item Name")
                 {
+                    // fill datagrid values with textbox values
                     datagridforItems.Rows.Add(txtitemname.Text, txtitemquantity.Value, txtunitprice.Text, txtsubtotal.Text);
 
-
-
-
+                    try
+                        {
                     // display and add total items bought amount
                     foreach (DataGridViewRow item in datagridforItems.Rows)
                     {
-                        if (!string.IsNullOrEmpty(item.Cells[3].ToString()))
+                        if (!string.IsNullOrEmpty(item.Cells[3].ToString()) & txtitemquantity.Value>=1)
                         {
-                            var totalSum = (from DataGridViewRow row in datagridforItems.Rows
-                                            where row.Cells[3].Value != null
-                                            select Convert.ToDecimal(row.Cells[3].FormattedValue)).Sum().ToString();
-                            txtgross.Text = totalSum;
+                            
+                                
+                                var totalSum = (from DataGridViewRow row in datagridforItems.Rows
+                                                where row.Cells[3].Value != null
+                                                select Convert.ToDecimal(row.Cells[3].Value))
+                                                .Sum()
+                                                .ToString();
+                                txtgross.Text = totalSum;
+                           
+                            
                         }
 
 
+
+                    }
+                }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
 
                     }
 
@@ -228,6 +248,9 @@ namespace MrSales_Manager
             }
            
         }
+
+
+
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -278,7 +301,7 @@ namespace MrSales_Manager
                {
                   var s= datagridforItems.Rows[i].Cells[0].Value;
                    myItemsList.Add(s.ToString());
-
+                  
                }
            }
 
@@ -292,7 +315,7 @@ namespace MrSales_Manager
 
             Random rand = new Random();
 
-           Printing p = new Printing("","Decent Digital technologies",txtsubtotal.Text,rand.Next(12049).ToString(),paynow.Text,txtdiscount.Text,txtExtracharge.Text,myItemsList,comphone,myprice);
+           Printing p = new Printing("","Company Name",txtsubtotal.Text,rand.Next(12049).ToString(),paynow.Text,txtdiscount.Text,txtExtracharge.Text,myItemsList,comphone,myprice);
                 p.print();
             
         }
